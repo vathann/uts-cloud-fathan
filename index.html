@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUXURY FRAGRANCE | Premium Perfume Collection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2a2a2a;
+      --secondary: #d4af8a;
+      --accent: #8b5a2b;
+      --light: #f8f5f2;
+      --dark: #1a1a1a;
+      --text: #333333;
+      --text-light: #777777;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      background-color: var(--light);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    
+    .logo span {
+      color: var(--accent);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    
+    .nav-icons {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .nav-icons i {
+      font-size: 1.2rem;
+      color: var(--primary);
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .nav-icons i:hover {
+      color: var(--accent);
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 70vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                  url('https://images.unsplash.com/photo-1615228939092-4c8c0c6f39f4') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 5%;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+    }
+    
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      letter-spacing: 0.5px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: var(--secondary);
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-radius: 30px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      background-color: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Products Section */
+    .section-title {
+      text-align: center;
+      margin: 80px 0 50px;
+    }
+    
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    .section-title p {
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 0 5%;
+      margin-bottom: 80px;
+    }
+    
+    .product {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    
+    .product:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background-color: var(--secondary);
+      color: var(--dark);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+    
+    .product-image {
+      height: 320px;
+      position: relative;
+      overflow: hidden;
+      background-color: #f9f9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .product-image img {
+      max-width: 80%;
+      max-height: 80%;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+    }
+    
+    .product:hover .product-image img {
+      transform: scale(1.1);
+    }
+    
+    .product-actions {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    
+    .product:hover .product-actions {
+      opacity: 1;
+      bottom: 30px;
+    }
+    
+    .action-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .action-btn:hover {
+      background-color: var(--secondary);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    .product-details {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .product-brand {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+    
+    .product-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    
+    .product-price {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .current-price {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+    
+    .original-price {
+      text-decoration: line-through;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    .rating {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+      color: var(--secondary);
+    }
+    
+    /* Newsletter */
+    .newsletter {
+      background-color: var(--primary);
+      color: white;
+      padding: 60px 5%;
+      text-align: center;
+    }
+    
+    .newsletter h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    
+    .newsletter p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #cccccc;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .newsletter-form button {
+      padding: 15px 25px;
+      background-color: var(--secondary);
+      color: var(--dark);
+      border: none;
+      border-radius: 0 30px 30px 0;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .newsletter-form button:hover {
+      background-color: var(--accent);
+      color: white;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 60px 5% 30px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--secondary);
+    }
+    
+    .footer-column ul {
+      list-style: none;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-column ul li a {
+      color: #cccccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-column ul li a:hover {
+      color: var(--secondary);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--secondary);
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #999999;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 5%;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .products-container {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .newsletter-form input,
+      .newsletter-form button {
+        border-radius: 30px;
+        width: 100%;
+      }
+      
+      .newsletter-form button {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="logo">LUXURY<span>FRAGRANCE</span></a>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Collections</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="nav-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-bag"></i>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Discover Your Signature Scent</h1>
+      <p>Experience the essence of luxury with our exquisite collection of premium fragrances crafted for the discerning individual.</p>
+      <a href="#" class="btn">SHOP NOW</a>
+    </div>
+  </section>
+  
+  <!-- Featured Products -->
+  <section>
+    <div class="section-title">
+      <h2>Our Fragrance Collection</h2>
+      <p>Each scent tells a story. Find the perfect fragrance that speaks to you.</p>
+    </div>
+    
+    <div id="produk-list" class="products-container"></div>
+  </section>
+  
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <h3>Join Our Fragrance Community</h3>
+    <p>Subscribe to receive exclusive offers, new arrivals, and fragrance tips directly to your inbox.</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Your email address">
+      <button type="submit">SUBSCRIBE</button>
+    </form>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>LUXURY FRAGRANCE</h4>
+        <p>Your destination for premium perfumes and luxury scents from around the world.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">All Fragrances</a></li>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Best Sellers</a></li>
+          <li><a href="#">Gift Sets</a></li>
+          <li><a href="#">Limited Editions</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Fragrance Guide</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Testimonials</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Customer Service</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 LUXURY FRAGRANCE. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <script>
+    fetch('http://18.143.65.39/products')
+      .then(response => response.json())
+      .then(data => {
+        const list = document.getElementById('produk-list');
+        data.forEach(product => {
+          const productElement = document.createElement('div');
+          productElement.className = 'product';
+          
+          // Add random badge (optional)
+          const badges = ['', 'BESTSELLER', 'NEW', 'LIMITED'];
+          const randomBadge = badges[Math.floor(Math.random() * badges.length)];
+          
+          // Add random rating (optional)
+          const randomRating = Math.floor(Math.random() * 2) + 3;
+          let ratingStars = '';
+          for (let i = 0; i < 5; i++) {
+            if (i < randomRating) {
+              ratingStars += '<i class="fas fa-star"></i>';
+            } else {
+              ratingStars += '<i class="far fa-star"></i>';
+            }
+          }
+          
+          productElement.innerHTML = `
+            ${randomBadge ? `<div class="product-badge">${randomBadge}</div>` : ''}
+            <div class="product-image">
+              <img src="${product.image_url}" alt="${product.name}" loading="lazy">
+              <div class="product-actions">
+                <div class="action-btn"><i class="far fa-heart"></i></div>
+                <div class="action-btn"><i class="fas fa-shopping-bag"></i></div>
+                <div class="action-btn"><i class="fas fa-eye"></i></div>
+              </div>
+            </div>
+            <div class="product-details">
+              <div class="product-brand">LUXURY FRAGRANCE</div>
+              <div class="product-name">${product.name}</div>
+              <div class="rating">${ratingStars}</div>
+              <div class="product-price">
+                <span class="current-price">Rp ${Number(product.price).toLocaleString('id-ID')}</span>
+                ${product.original_price ? `<span class="original-price">Rp ${Number(product.original_price).toLocaleString('id-ID')}</span>` : ''}
+              </div>
+            </div>
+          `;
+          
+          list.appendChild(productElement);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching products:', error);
+        document.getElementById('produk-list').innerHTML = `
+          <div style="text-align:center; width:100%; padding:30px; grid-column:1/-1">
+            <p>Unable to load products at this time. Please try again later.</p>
+          </div>
+        `;
+      });
+  </script>
+</body>
+</html>
